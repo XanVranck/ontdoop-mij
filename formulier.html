@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulierpagina</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Formulier</h1>
+        <nav>
+            <ul>
+
+                <li><a href="index.html">Home</a></li>
+                <li><a href="formulier.html">Formulier</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Vul het formulier in</h2>
+        <form id="formId">
+            <label for="bisdom">Selecteer een bisdom:</label>
+            <select id="bisdom" name="bisdom">
+                <option value=" & ">...</option>
+                <option value="bisdom-antwerpen & Schoenmarkt 2, 2000 Antwerpen">Bisdom Antwerpen – Schoenmarkt 2, 2000
+                    Antwerpen</option>
+                <option value="bisdom-brugge & Heilige Geeststraat 4, 8000">Bisdom Brugge – Heilige Geeststraat 4, 8000
+                    Brugge</option>
+                <option value="bisdom-gent & Bisdomplein 1, 9000 Gent">Bisdom Gent – Bisdomplein 1, 9000 Gent</option>
+                <option value="bisdom-hasselt & Vrijwilligersplein 14, 3500 Hasselt">Bisdom Hasselt – Vrijwilligersplein
+                    14, 3500 Hasselt</option>
+                <option value="bisdom-mechelen-brussel & Wollenmarkt 14, 2800 Mechelen">Bisdom Mechelen-Brussel –
+                    Wollenmarkt 14, 2800 Mechelen</option>
+                <option value="diocese-liege & Rue de l’Evêché 25, 4000 Liège">Diocèse de Liège – Rue de l’Evêché 25,
+                    4000 Liège</option>
+                <option value="diocese-namur & Rue de l’Evêché 1, 5000 Namur">Diocèse de Namur – Rue de l’Evêché 1, 5000
+                    Namur</option>
+                <option value="diocese-tournai & Place de l’Evêché 1,7500 Tournai">Diocèse de Tournai – Place de
+                    l’Evêché 1, 7500 Tournai</option>
+            </select>
+            <br />
+            <br />
+            <label for="voornaam">Voornaam: </label>
+            <input type="text" id="voornaam" name="voornaam" required>
+            <br>
+            <label for="achternaam">Achternaam:</label>
+            <input type="text" id="achternaam" name="achternaam" required>
+            <br>
+            <!-- <label for="geboorteplaats">Geboorteplaats:</label>
+            <input type="text" id="geboorteplaats" name="geboorteplaats" required>
+            <br> -->
+            <label for="geboortedatum">Geboortedatum:</label>
+            <input type="text" id="geboortedatum" placeholder="31-01-1990" name="geboortedatum" required>
+            <br>
+            <label for="doopplaats">Plaats waar ik gedoopt werd:</label>
+            <input type="text" id="doopplaats" name="doopplaats" required>
+            <br>
+            <label for="woonplaatsdoop">Woonplaats toen ik gedoopt werd: </label>
+            <input type="text" id="woonplaatsdoop" placeholder="straat nummer, postcode gemeente/stad"
+                name="woonplaatsdoop" required>
+            <br>
+            <label for="woonplaats">Woonplaats: </label>
+            <input type="text" id="woonplaats" placeholder="straat nummer, postcode gemeente/stad" name="woonplaats"
+                required>
+
+            <br>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <input type="submit" value="Verzenden" id="verzenden">
+        </form>
+        <br />
+        <br />
+        <br />
+        <style>
+            blockquote {
+                margin: 0 auto;
+                max-width: 600px;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                text-align: center;
+            }
+        </style>
+        <blockquote>
+            <i>
+                <p>
+                <p>Aan:</p>
+                <p id="bisdomNaam">Naam (naam van het bisdom)</p>
+                </p>
+                <p id="bisdomAdres">Adres (adres van het bisdom)</p>
+
+                <p>Betreft: Schrappen uit het doopregister</p>
+
+                <p id="datum">Datum</p>, <p id="woonplaatsP">huidige Woonplaats</p>,
+
+                <p>Geachte heer/mevrouw,</p>
+
+                <p>Hierbij maak ik kenbaar dat ik graag wil uittreden uit de Rooms-Katholieke Kerk.</p>
+
+                <p>Mijn gegevens:</p>
+                <p id="voornaamP">Voornaam</p>
+                <p id="achternaamP">Achternaam</p>
+                <p id="woonplaats2P">Woonplaats</p>
+                <p id="geboortedatumP">Geboortedatum</p>
+                <p>Plaats waar ik gedoopt werd:</p>
+                <p id="doopplaatsP"></p>
+                <p>Woonplaats toen ik gedoopt werd:</p>
+                <p id="woonplaatsdoopP"></p>
+
+
+                <p>Graag ontvang ik een bevestiging met de datum wanneer mijn uittreding ingaat.</p>
+
+                <p>Met vriendelijke groeten,</p>
+                <p id="voornaam2P">Voornaam</p>
+                <p id="achternaam2P"> Achternaam</p>
+                <p id="emailP"> Email</p>
+                </p>
+            </i>
+        </blockquote>
+
+        <script>
+            //naam van het bisdom
+            const selectNaam = document.getElementById('bisdom');
+            const naamVanHetBisdom = document.getElementById('bisdomNaam');
+
+            selectNaam.addEventListener('change', (event) => {
+                const selectedOption = event.target.value.split(' & ')[0];
+                naamVanHetBisdom.textContent = `${selectedOption}`;
+            });
+            //adres van het bisdom
+            const selectAdres = document.getElementById('bisdom');
+            const adresVanHetBisdom = document.getElementById('bisdomAdres');
+
+            selectAdres.addEventListener('change', (event) => {
+                const selectedOption = event.target.value.split(' & ')[1];
+                adresVanHetBisdom.textContent = `${selectedOption}`;
+            });
+            // datum van vandaag
+            const datumElement = document.getElementById('datum');
+            const today = new Date();
+            const formattedDate = `${today.getDate().toString().padStart(2, '0')}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getFullYear()}`;
+
+            datumElement.textContent = formattedDate;
+
+            //voornaam
+            const voornaamInput = document.getElementById('voornaam');
+            const voornaamElement = document.getElementById('voornaamP');
+            const voornaam2Element = document.getElementById('voornaam2P');
+
+            voornaamInput.addEventListener('input', (event) => {
+                voornaamElement.textContent = event.target.value;
+                voornaam2Element.textContent = event.target.value;
+            });
+
+            //achternaam
+            const achternaamInput = document.getElementById('achternaam');
+            const achternaamElement = document.getElementById('achternaamP');
+            const achternaam2Element = document.getElementById('achternaam2P');
+
+            achternaamInput.addEventListener('input', (event) => {
+                achternaamElement.textContent = event.target.value;
+                achternaam2Element.textContent = event.target.value;
+            });
+
+            //geboorteplaats
+            // const geboorteplaatsInput = document.getElementById('geboorteplaats');
+            // const geboorteplaatsElement = document.getElementById('geboorteplaatsP');
+
+            // geboorteplaatsInput.addEventListener('input', (event) => {
+            //     geboorteplaatsElement.textContent = event.target.value;
+            // });
+
+            //geboortedatum
+            const geboortedatumInput = document.getElementById('geboortedatum');
+            const geboortedatumElement = document.getElementById('geboortedatumP');
+
+            geboortedatumInput.addEventListener('input', (event) => {
+                geboortedatumElement.textContent = event.target.value;
+            });
+
+            //doopplaats
+            const doopplaats = document.getElementById('doopplaats');
+            const doopplaatsElement = document.getElementById('doopplaatsP');
+
+            doopplaats.addEventListener('input', (event) => {
+                doopplaatsElement.textContent = event.target.value;
+            });
+
+            //woonplaats
+            const woonplaats = document.getElementById('woonplaats');
+            const woonplaatsElement = document.getElementById('woonplaatsP');
+            const woonplaats2Element = document.getElementById('woonplaats2P');
+
+            woonplaats.addEventListener('input', (event) => {
+                woonplaatsElement.textContent = event.target.value;
+                woonplaats2Element.textContent = event.target.value;
+            });
+
+            //woonplaats tijdens doop
+            const woonplaatsdoop = document.getElementById('woonplaatsdoop');
+            const woonplaatsdoopElement = document.getElementById('woonplaatsdoopP');
+
+            woonplaatsdoop.addEventListener('input', (event) => {
+                woonplaatsdoopElement.textContent = event.target.value;
+            });
+
+            //email
+            const email = document.getElementById('email');
+            const emailElement = document.getElementById('emailP');
+
+            email.addEventListener('input', (event) => {
+                emailElement.textContent = event.target.value;
+            });
+
+            //verzenden
+            const verzenden = document.getElementById('verzenden');
+
+            // var form = document.getElementById("formId");
+            // form.addEventListener("submit", function (evt) {
+            //     console.log('email');
+            // });
+
+            // verzenden.addEventListener("click", function () { alert("something"); return false; }, false);
+            const axios = require('axios');
+            const apikey = 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;
+            const sendEmail = async (email, from) => {
+                try {
+                    const response = await axios.post('https://api.sendgrid.com/v3/mail/send', {
+                        personalizations: [
+                            {
+                                to: [
+                                    {
+                                        email: 'vranckaert.xan@gmail.com'
+                                    }
+                                ],
+                                subject: 'Schrap mij uit het doopregister'
+                            }
+                        ],
+                        from: {
+                            email: from
+                        },
+                        content: [
+                            {
+                                type: 'text/plain',
+                                value: email
+                            }
+                        ]
+                    }, {
+                        headers: {
+                            'Authorization': `Bearer ${apikey}`,
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    console.log(response.data);
+                }
+                catch (error) {
+                    console.error(error);
+                }
+            };
+
+            verzenden.addEventListener('click', (event) => {
+                event.preventDefault();
+                const email = `
+                    Aan:
+                    ${bisdomNaam.textContent}
+                    ${bisdomAdres.textContent}
+
+                    Betreft: Schrappen uit het doopregister
+
+                    ${formattedDate}, ${woonplaatsP.textContent},
+
+                    Geachte heer/mevrouw,
+
+                    Hierbij maak ik kenbaar dat ik graag wil uittreden uit de Rooms-Katholieke Kerk.
+
+                    Mijn gegevens:
+                    ${voornaamP.textContent} ${achternaamP.textContent}
+                    ${woonplaatsP.textContent}
+                    ${geboortedatumP.textContent}
+                    Plaats waar ik gedoopt werd: ${doopplaatsP.textContent}
+                    Woonplaats toen ik gedoopt werd: ${woonplaatsdoopP.textContent}
+
+                    Graag ontvang ik een bevestiging met de datum wanneer mijn uittreding ingaat.
+
+                    Met vriendelijke groeten,
+                    ${voornaamP.textContent} ${achternaamP.textContent}`;
+                email(email, `${emailP}`)
+        </script>
+    </main>
+</body>
+
+</html>
